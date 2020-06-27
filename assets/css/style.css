@@ -4,12 +4,61 @@ body{
     margin:0;
     font-size: 16px;
     padding: 0;
-    margin: 0;
+}
+.header{
+    font-family: Helvetica,sans-serif;
+    padding: 8px 15%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #3e5c9a;
+    color:#fff;
+    height: 95px;
+}
+.logo{
+    margin:auto 0;
+    font-size: 40px;
+    flex-basis: 50%;
+}
+.sign-in-form{
+    display: flex;
+    align-items: center;
+}
+.mobile-input{
+    margin-left: 10px;
+}
+.input-text{
+    font-size: 12px;
+    padding-bottom: 5px;
+}
+.input-text-field{
+    background-color: #faffbd;
+    border:none;
+    height: 20px;
+}
+.password-input{
+    margin-left: 1rem;
+    margin-top:20px;
+    margin-right:1rem;
+}
+.forgotten-acc{
+    font-size: 12px;
+    margin-top:5px;
+    color:#9cb4d8;
+    cursor: pointer;
+}
+.login{
+    height: 30%;
+    background-color: #4267bc;
+    color:#fff;
+    border:none;
+    box-shadow:  0 0 1px #000;
+    margin-top:18px;
+    padding: 5px;
+    cursor: pointer;
 }
 .main{
     font-family: Helvetica,Arial,sans-serif;
     height: 100vh;
-    width: 100vw;
     display: flex;
 }
 .left-side{
@@ -26,7 +75,7 @@ body{
 }
 .right-side{
     flex-basis: 50%;
-    margin: auto;
+    margin-top:5%;
 }
 .error{
     color:red;
