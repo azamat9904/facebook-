@@ -1,5 +1,7 @@
 <?php
 require_once 'core/load.php';
+require_once 'connect/Login.php';
+if(Login::isLogginedIn()) header('Location:profile.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['first-name']) && !empty($_POST['first-name'])) {
     if (isset($_POST['last-name']) && !empty($_POST['last-name'])
         && isset($_POST['email-mobile']) && !empty($_POST['email-mobile'])
@@ -17,12 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['first-name']) && !emp
         $birthday = $loadFromUser->checkInput($year . '-' . $month . '-' . $day);
         $screenName = $firstName . '_' . $lastName;
         $gender = $_POST['gen'];
-
         if (DB::query('SELECT screenName FROM users WHERE screenName = :screenName', array(':screenName' => $screenName))) {
             $screenRand = rand();
             $userLink = $screenName . $screenRand;
         } else $userLink = $screenName;
-
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $error = "Invalid email Format";
         elseif (strlen($firstName) > 20) $error = "Name must be no more than 20 characters";
         elseif (strlen($password) < 5 || strlen($password) > 60) $error = "Password is too short or long";
@@ -34,30 +34,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['first-name']) && !emp
                         'password' => password_hash($password, PASSWORD_BCRYPT),
                         'screenName' => $screenName, 'userLink' => $userLink, 'birthday' => $birthday, 'gender' => $gender));
 
+                $loadFromUser->create('prof',
+                    array('userId'=>$userId,'firstName' => $firstName, 'lastName' => $lastName, 'email' => $email,'profilePic'=>'aaa','coverPic'=>'aaa'));
+
                 $tstrong = true;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $tsrong));
-                $loadFromUser->create('token', array('token' => $token, 'user_id' => $userId));
+                $loadFromUser->create('token', array('token' => sha1($token), 'user_id' => $userId));
                 setcookie('FBID', $token, time() + 60 * 60 * 24 * 7);
-                header('Location: index.php');
-
+                header('Location: profile.php');
             }
         }
     } else {
         $error = "All fields are required";
     }
 }
+
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['in-email-mobile']) && !empty($_POST['in-email-mobile'])){
     if(isset($_POST['in-pass']) && !empty($_POST['in-pass'])){
         $login = $_POST['in-email-mobile'];
         $password = $_POST['in-pass'];
         if(DB::query('SELECT email FROM users WHERE email = :email',array(':email'=>$login))){
             if(password_verify($password,DB::query('SELECT password FROM users WHERE email = :email',array('email'=>$login))[0]['password'])){
-                $userId = DB::query('SELECT user_id FROM users WHERE email = :email',array('email'=>$login));
+                $userId = DB::query('SELECT user_id FROM users WHERE email = :email',array('email'=>$login))[0]['user_id'];
+
                 $tstrong = true;
-                $token = bin2hex(openssl_random_pseudo_bytes(64,$tstrong));
-                $loadFromUser->create('token',array('token'=>$token,'user_id'=>$userId));
-                setcookie('FBID',$token, time() + 60*60*24*7);
-                header('Location:index.php');
+                $token = bin2hex(openssl_random_pseudo_bytes(64, $tsrong));
+                $loadFromUser->update('token',array('token' =>sha1($token),'user_id'=>$userId));
+                setcookie('FBID', $token, time() + 60 * 60 * 24 * 7);
+                header('Location: profile.php');
             }else{
                 $error = "Password is not correct";
             }

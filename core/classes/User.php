@@ -27,4 +27,21 @@ class User{
         $stmt->execute($fields);
         return $this->pdo->lastInsertId();
     }
+    public function update($table,$data){
+        $column1 = array_keys($data)[0];
+        $column2 = array_keys($data)[1];
+        $value1 = $data[$column1];
+        $value2 = $data[$column2];
+        $sql = "UPDATE $table SET $column1 = '$value1' WHERE $column2 = $value2";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+    }
+    public function userIdByUserName($username){
+        $stmt = $this->pdo->prepare('SELECT user_id FROM users WHERE userLink = :username');
+        $stmt->bindParam(':username',$username,PDO::PARAM_STR);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_OBJ);
+        return $user->user_id;
+    }
+
 }

@@ -3,6 +3,9 @@
     margin:0;
     box-sizing: border-box;
 }
+a{
+    text-decoration: none;
+}
 .top-bar{
     background-color: #4267b2;
     height: 42px;
@@ -62,5 +65,42 @@ input#main-search{
     align-items: center;
     cursor: pointer;
     font-weight: 600;
-
+}
+.top-right-part{
+    flex-basis: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-pic img{
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+}
+.top-pic-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.border-left{
+    border-left:.5px solid rgba(2,2,2,.37);
+}
+.warchmore-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.request-svg:hover .cls-1,
+.message-svg:hover .cls-1,
+.help-svg:hover .cls-1,
+.more-svg:hover .cls-1,
+.notification-svg:hover .cls-1
+{
+    transition: .3s;
+    fill:white;
 }
