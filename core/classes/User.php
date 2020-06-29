@@ -27,15 +27,15 @@ class User{
         $stmt->execute($fields);
         return $this->pdo->lastInsertId();
     }
-    public function update($table,$data){
-        $column1 = array_keys($data)[0];
-        $column2 = array_keys($data)[1];
-        $value1 = $data[$column1];
-        $value2 = $data[$column2];
-        $sql = "UPDATE $table SET $column1 = '$value1' WHERE $column2 = $value2";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-    }
+//    public function update($table,$data){
+//        $column1 = array_keys($data)[0];
+//        $column2 = array_keys($data)[1];
+//        $value1 = $data[$column1];
+//        $value2 = $data[$column2];
+//        $sql = "UPDATE $table SET $column1 = '$value1' WHERE $column2 = $value2";
+//        $stmt = $this->pdo->prepare($sql);
+//        $stmt->execute();
+//    }
     public function userIdByUserName($username){
         $stmt = $this->pdo->prepare('SELECT user_id FROM users WHERE userLink = :username');
         $stmt->bindParam(':username',$username,PDO::PARAM_STR);
@@ -48,5 +48,20 @@ class User{
         $stmt->bindParam(':user_id',$profileId,PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function update($table,$user_id,$fields = array()){
+        $column = '';
+        $i = 1;
+        foreach ($fields as $name=>$value) {
+            $column .="{$name} = :{$name}";
+            if($i < count($fields)){
+                $column .=', ';
+            }
+            $i++;
+        }
+        $sql = "UPDATE {$table} SET {$column} WHERE user_id= {$user_id}";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($fields);
     }
 }

@@ -182,8 +182,8 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
                     <div class="add-cov-opt">
                         <div class="select-cover-photo">Select photo</div>
                         <div class="file-upload">
-                            <label for="file-upload" class="file-upload-label">Upload Photo</label>
-                            <input type="file" name="file-upload" class="file-upload-input">
+                            <label for="cover-upload" class="file-upload-label">Upload Photo</label>
+                            <input type="file" name="file-upload"  id = "cover-upload" class="file-upload-input">
                         </div>
                     </div>
                 </div>
@@ -199,5 +199,6 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
     <div class="top-box-show"></div>
     <div id="adv_dem"></div>
 </main>
+<script src = "assets/js/profile.js"></script>
 </body>
 </html>

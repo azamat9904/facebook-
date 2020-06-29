@@ -1,9 +1,8 @@
 <?php
-    include 'database/connection.php';
-    include 'classes/User.php';
-    include 'classes/Post.php';
-    include 'connect/DB.php';
-
+    require_once $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
+    require_once  $_SERVER['DOCUMENT_ROOT'].'/core/classes/User.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/core/classes/Post.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/connect/DB.php';
     global $pdo;
 
     $loadFromUser = new User($pdo);

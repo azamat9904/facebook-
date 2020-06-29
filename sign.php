@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['first-name']) && !emp
                         'screenName' => $screenName, 'userLink' => $userLink, 'birthday' => $birthday, 'gender' => $gender));
 
                 $loadFromUser->create('profile',
-                    array('userId'=>$userId,'birthday'=>$birthday,'firstName' => $firstName, 'lastName' => $lastName,'profilePic'=>'assets/image/defaultProfile.png','coverPic'=>'assets/image/defaultCover.png','gender'=>$gender));
+                    array('user_id'=>$userId,'birthday'=>$birthday,'firstName' => $firstName, 'lastName' => $lastName,'profilePic'=>'assets/image/defaultProfile.png','coverPic'=>'assets/image/defaultCover.png','gender'=>$gender));
 
                 $tstrong = true;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $tsrong));
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['in-email-mobile']) && 
 
                 $tstrong = true;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $tsrong));
-                $loadFromUser->update('token',array('token' =>sha1($token),'user_id'=>$userId));
+                $loadFromUser->update('token',$userId,array('token' =>sha1($token)));
                 setcookie('FBID', $token, time() + 60 * 60 * 24 * 7);
                 header('Location: profile.php');
             }else{
@@ -151,7 +151,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['in-email-mobile']) && 
         </form>
     </div>
 </div>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/signup.js"></script>
 </body>
 
 </html>
