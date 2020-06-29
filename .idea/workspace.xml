@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a432f905-9751-4577-b1cd-18cbd20cf3e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/connect/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/classes/User.php" afterDir="false" />
@@ -49,6 +48,7 @@
       <workItem from="1593248238040" duration="12894000" />
       <workItem from="1593277276830" duration="2713000" />
       <workItem from="1593323322083" duration="15572000" />
+      <workItem from="1593420496952" duration="4855000" />
     </task>
     <servers />
   </component>
@@ -56,10 +56,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593323349844">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593420496581">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593323349844" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593420496581" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1593325508441">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

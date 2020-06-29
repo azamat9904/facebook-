@@ -34,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['first-name']) && !emp
                         'password' => password_hash($password, PASSWORD_BCRYPT),
                         'screenName' => $screenName, 'userLink' => $userLink, 'birthday' => $birthday, 'gender' => $gender));
 
-                $loadFromUser->create('prof',
-                    array('userId'=>$userId,'firstName' => $firstName, 'lastName' => $lastName, 'email' => $email,'profilePic'=>'aaa','coverPic'=>'aaa'));
+                $loadFromUser->create('profile',
+                    array('userId'=>$userId,'birthday'=>$birthday,'firstName' => $firstName, 'lastName' => $lastName,'profilePic'=>'assets/image/defaultProfile.png','coverPic'=>'assets/image/defaultCover.png','gender'=>$gender));
 
                 $tstrong = true;
                 $token = bin2hex(openssl_random_pseudo_bytes(64, $tsrong));

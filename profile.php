@@ -7,7 +7,7 @@ else header('Location:sign.php');
 if (isset($_GET['username']) && !empty($_GET['username'])) {
     $username = $loadFromUser->checkInput($_GET['username']);
     $profileId = $loadFromUser->userIdByUserName($username);
-//    $profileData = $loadFromUser->userData($profileId);
+    $profileData = $loadFromUser->userData($profileId);
 }
 ?>
 <!doctype html>
@@ -39,10 +39,10 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
         </div>
         <div class="top-right-part">
             <div class="top-pick-name-wrap">
-                <a href="profile.php?username=azamat_namialy" class="top-pic-name">
-                    <div class="top-pic"><img src="assets/image/me.jpg" alt=""></div>
+                <a href="profile.php?username=<?php echo $profileData->userLink; ?>" class="top-pic-name">
+                    <div class="top-pic"><img src="<?php echo $profileData->profilePic; ?>" alt=""></div>
                     <span class="top-name top-css">
-                            Azamat
+                           <?= $profileData->firstName; ?>
                         </span>
                 </a>
             </div>
@@ -168,7 +168,26 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
 <main>
     <div class="main-area">
         <div class="profile-left-wrap">
-            <div class="profile-cover-wrap"></div>
+            <div class="profile-cover-wrap" style="background-image:url(<?= $profileData->coverPic; ?>)">
+                <div class="upload-cov-opt-wrap">
+
+                    <?php if ($userId == $profileId) { ?>
+                        <div class="add-cover-photo">
+                            <img src="assets/image/profile/uploadCoverPhoto.JPG" alt="">
+                            <div class="add-cover-text">Add a cover photo</div>
+                        </div>
+                    <?php } else { ?>
+                        <div class="dont-add-cover-photo"></div>
+                    <?php } ?>
+                    <div class="add-cov-opt">
+                        <div class="select-cover-photo">Select photo</div>
+                        <div class="file-upload">
+                            <label for="file-upload" class="file-upload-label">Upload Photo</label>
+                            <input type="file" name="file-upload" class="file-upload-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="cover-bottom-part"></div>
             <div class="bio-timeline">
                 <div class="bio-wrap"></div>
