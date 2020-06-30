@@ -8,6 +8,7 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
     $username = $loadFromUser->checkInput($_GET['username']);
     $profileId = $loadFromUser->userIdByUserName($username);
     $profileData = $loadFromUser->userData($profileId);
+    $userData = $loadFromUser->userData($userId);
 }
 ?>
 <!doctype html>
@@ -39,10 +40,10 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
         </div>
         <div class="top-right-part">
             <div class="top-pick-name-wrap">
-                <a href="profile.php?username=<?php echo $profileData->userLink; ?>" class="top-pic-name">
-                    <div class="top-pic"><img src="<?php echo $profileData->profilePic; ?>" alt=""></div>
+                <a href="profile.php?username=<?php echo $userData->userLink; ?>" class="top-pic-name">
+                    <div class="top-pic"><img src="<?php echo $userData->profilePic; ?>" alt=""></div>
                     <span class="top-name top-css">
-                           <?= $profileData->firstName; ?>
+                           <?= $userData->firstName; ?>
                         </span>
                 </a>
             </div>
@@ -168,7 +169,14 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
 <main>
     <div class="main-area">
         <div class="profile-left-wrap">
-            <div class="profile-cover-wrap" style="background-image:url(<?= $profileData->coverPic; ?>)">
+            <div class="profile-cover-wrap" style="background-image:url('<?php
+                if(explode('/',$profileData->coverPic)[0] == 'users'){
+                    echo './'.$profileData->coverPic;
+                }else{
+                    echo './assets/image/defaultCover.png';
+                }
+?>
+            ')">
                 <div class="upload-cov-opt-wrap">
 
                     <?php if ($userId == $profileId) { ?>
@@ -183,7 +191,25 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
                         <div class="select-cover-photo">Select photo</div>
                         <div class="file-upload">
                             <label for="cover-upload" class="file-upload-label">Upload Photo</label>
-                            <input type="file" name="file-upload"  id = "cover-upload" class="file-upload-input">
+                            <input type="file" name="file-upload" id="cover-upload" class="file-upload-input" >
+                        </div>
+                    </div>
+                </div>
+                <div class="cover-photo-rest-wrap">
+                    <div class="profile-pic-name">
+                        <div class="profile-pic">
+                            <?php if($profileId === $userId){ ?>
+                            <div class="profile-pic-upload">
+                                <div class="add-pro">
+                                    <img src="assets/image/profile/uploadCoverPhoto.JPG" alt="">
+                                    <div>Update</div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <img src="<?= $profileData->profilePic;?>" alt="" class = "profile-pic-me">
+                        </div>
+                        <div class="profile-name">
+                            <?php echo $profileData->first_name. ' ' . $profileData->last_name ?>
                         </div>
                     </div>
                 </div>
@@ -196,9 +222,23 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
         </div>
         <div class="profile-right-wrap"></div>
     </div>
-    <div class="top-box-show"></div>
+    <div class="top-box-show">
+        <div class="top-box align-vertical-middle profile-dialog-show">
+            <div class="profile-pic-upload-action">
+                <div class="pro-pic-up">
+                    <div class="file-upload">
+                        <label for="profile-upload" class = "file-upload-label">
+                            <snap class = "upload-plus-text align-middle"><snap class = "upload-plus-sign">+</snap>Upload Photo</snap>
+                        </label>
+                        <input type="file" name = "file-upload" id = "profile-upload" class = "file-upload-input">
+                    </div>
+                </div>
+                <div class="pro-pic-choose"></div>
+            </div>
+        </div>
+    </div>
     <div id="adv_dem"></div>
 </main>
-<script src = "assets/js/profile.js"></script>
+<script src="assets/js/profile.js"></script>
 </body>
 </html>

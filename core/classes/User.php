@@ -27,15 +27,6 @@ class User{
         $stmt->execute($fields);
         return $this->pdo->lastInsertId();
     }
-//    public function update($table,$data){
-//        $column1 = array_keys($data)[0];
-//        $column2 = array_keys($data)[1];
-//        $value1 = $data[$column1];
-//        $value2 = $data[$column2];
-//        $sql = "UPDATE $table SET $column1 = '$value1' WHERE $column2 = $value2";
-//        $stmt = $this->pdo->prepare($sql);
-//        $stmt->execute();
-//    }
     public function userIdByUserName($username){
         $stmt = $this->pdo->prepare('SELECT user_id FROM users WHERE userLink = :username');
         $stmt->bindParam(':username',$username,PDO::PARAM_STR);
@@ -44,7 +35,7 @@ class User{
         return $user->user_id;
     }
     public function userData($profileId){
-        $stmt = $this->pdo->prepare("SELECT * FROM users LEFT JOIN profile ON users.user_id = profile.userId WHERE users.user_id = :user_id");
+        $stmt = $this->pdo->prepare("SELECT * FROM users LEFT JOIN profile ON users.user_id = profile.user_id WHERE users.user_id = :user_id");
         $stmt->bindParam(':user_id',$profileId,PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_OBJ);
