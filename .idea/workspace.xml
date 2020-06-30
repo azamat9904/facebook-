@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a432f905-9751-4577-b1cd-18cbd20cf3e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ajax/profilePhoto.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/ajax/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/ajax/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/classes/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +51,7 @@
       <workItem from="1593420496952" duration="17091000" />
       <workItem from="1593492659995" duration="13783000" />
       <workItem from="1593510474406" duration="869000" />
-      <workItem from="1593533503606" duration="5368000" />
+      <workItem from="1593533503606" duration="6754000" />
     </task>
     <servers />
   </component>

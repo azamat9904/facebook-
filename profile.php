@@ -214,10 +214,19 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
                     </div>
                 </div>
             </div>
-            <div class="cover-bottom-part"></div>
-            <div class="bio-timeline">
-                <div class="bio-wrap"></div>
-                <div class="status-timeline-wrap"></div>
+            <div class="cover-bottom-part">
+                <div class="timelie-button align-middle cover-but-css" data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>">
+                    Timeline
+                </div>
+                <div class="about-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                    About
+                </div>
+                <div class="friends-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                    Friends
+                </div>
+                <div class="photos-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                    Photo
+                </div>
             </div>
         </div>
         <div class="profile-right-wrap"></div>
