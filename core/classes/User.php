@@ -55,4 +55,27 @@ class User{
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($fields);
     }
+    public function timeAgo($datatime){
+        $time = strtotime($datatime);
+        $current = time();
+        $seconds = $current-$time;
+        $minutes = round($seconds/60);
+        $hours = round($seconds/3600);
+        $months = round($seconds / 2600640);
+        if($seconds <= 60){
+            if($seconds == 0){
+                return 'posted now';
+            }else{
+                return $seconds . 's ago';
+            }
+        }else if($minutes <= 60){
+            return $minutes . 'm ago';
+        }else if($hours <= 24){
+            return $hours.' h ago';
+        }else if($months <= 24){
+            return date('M j' ,$time);
+        }else{
+            return date('j M Y',$time);
+        }
+    }
 }

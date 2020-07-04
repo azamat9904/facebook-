@@ -380,6 +380,7 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
             </div>
         </div>
     </div>
+    <div class="show-img-bg"></div>
     <div id="adv_dem"></div>
 </main>
 <script

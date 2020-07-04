@@ -12,8 +12,9 @@ if(isset($_POST['names']) && count($_POST['names']) !== 0){
     $names = $_POST['names'];
     $str = '[';
     foreach($names as $key=>$value){
-        $str .= "{\"imageName\":\"users/$userId/postImage/$value}\"";
+        $str .= "{\"imageName\":\"users/$userId/postImage/$value\"},";
     }
+    $str = substr($str,0,-1);
     $str .= ']';
     $loadFromUser->create('post',array('user_id'=>$userId,'post'=>$statusText,'postImage'=>$str,'postBy'=>$userId,'postedOn'=>date('Y-m-d H:i:s')));
 }else {
