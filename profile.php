@@ -19,6 +19,7 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/dist/emojionearea.min.css">
     <title>Azamat Namiyaly</title>
 </head>
 <body>
@@ -77,7 +78,6 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
             <a href="messenger.php">
                 <div class="top-messanger top-css top-icon border-left">
                     <div class="messenger-count"></div>
-
                     <svg xmlns="http://www.w3.org/2000/svg" class="message-svg" viewBox="0 0 12.64 13.64"
                          style="height:20px;width:20px;">
                         <defs>
@@ -170,13 +170,12 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
     <div class="main-area">
         <div class="profile-left-wrap">
             <div class="profile-cover-wrap" style="background-image:url('<?php
-                if(explode('/',$profileData->coverPic)[0] == 'users'){
-                    echo './'.$profileData->coverPic;
-                }else{
-                    echo './assets/image/defaultCover.png';
-                }
-?>
-            ')">
+            if (explode('/', $profileData->coverPic)[0] == 'users') {
+                echo './' . $profileData->coverPic;
+            } else {
+                echo './assets/image/defaultCover.png';
+            }
+            ?>');background-size:cover;">
                 <div class="upload-cov-opt-wrap">
 
                     <?php if ($userId == $profileId) { ?>
@@ -191,41 +190,173 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
                         <div class="select-cover-photo">Select photo</div>
                         <div class="file-upload">
                             <label for="cover-upload" class="file-upload-label">Upload Photo</label>
-                            <input type="file" name="file-upload" id="cover-upload" class="file-upload-input" >
+                            <input type="file" name="file-upload" id="cover-upload" class="file-upload-input">
                         </div>
                     </div>
                 </div>
                 <div class="cover-photo-rest-wrap">
                     <div class="profile-pic-name">
                         <div class="profile-pic">
-                            <?php if($profileId === $userId){ ?>
-                            <div class="profile-pic-upload">
-                                <div class="add-pro">
-                                    <img src="assets/image/profile/uploadCoverPhoto.JPG" alt="">
-                                    <div>Update</div>
+                            <?php if ($profileId === $userId) { ?>
+                                <div class="profile-pic-upload">
+                                    <div class="add-pro">
+                                        <img src="assets/image/profile/uploadCoverPhoto.JPG" alt="">
+                                        <div>Update</div>
+                                    </div>
                                 </div>
-                            </div>
                             <?php } ?>
-                            <img src="<?= $profileData->profilePic;?>" alt="" class = "profile-pic-me">
+                            <img src="<?= $profileData->profilePic; ?>" alt="" class="profile-pic-me">
                         </div>
                         <div class="profile-name">
-                            <?php echo $profileData->first_name. ' ' . $profileData->last_name ?>
+                            <?php echo $profileData->first_name . ' ' . $profileData->last_name ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="cover-bottom-part">
-                <div class="timelie-button align-middle cover-but-css" data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>">
+                <div class="timelie-button align-middle cover-but-css" data-userid="<?= $userId ?>"
+                     data-profileid="<?= $profileId ?>">
                     Timeline
                 </div>
-                <div class="about-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                <div class="about-button align-middle cover-but-css" data-userid="<?= $userId ?>"
+                     data-profileid="<?= $profileId ?>">
                     About
                 </div>
-                <div class="friends-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                <div class="friends-button align-middle cover-but-css" data-userid="<?= $userId ?>"
+                     data-profileid="<?= $profileId ?>">
                     Friends
                 </div>
-                <div class="photos-button align-middle cover-but-css"  data-userid = "<?=$userId ?>" data-profileid="<?=$profileId ?>" >
+                <div class="photos-button align-middle cover-but-css" data-userid="<?= $userId ?>"
+                     data-profileid="<?= $profileId ?>">
                     Photo
+                </div>
+            </div>
+            <div class="bio-timeline">
+                <div class="bio-wrap">
+                    <div class="bio-intro">
+                        <div class="intro-wrap">
+                            <img src="assets/image/profile/intro.JPG" alt="">
+                            <div>Intro</div>
+                        </div>
+                        <div class="intro-icon-text">
+                            <img src="assets/image/profile/addBio.JPG" alt="">
+                            <div class="add-bio-text">Add a short bio to tell people more yourself</div>
+                            <div class="add-bio-click"><a href="">Add Bio</a></div>
+                        </div>
+                        <div class="bio-details">
+                            <div class="bio-1">
+                                <img src="assets/image/profile/livesIn.JPG" alt="">
+                                <div class="live-text">Lives in <span class='live-text-css blue'>Chittagon</span></div>
+                            </div>
+                            <div class="bio-2">
+                                <img src="assets/image/profile/followedBy.JPG" alt="">
+                                <div class="iive-text">Followed by <span class="followed-text-css blue">65 people</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bio-feature">
+                            <img src="assets/image/profile/feature.JPG" alt="">
+                            <div class="feat-text">
+                                Showcase what's important to you by adding people. pages,groups and more to your
+                                featured section on your public profile.
+                            </div>
+                            <div class="add-feature blue">Add to featured</div>
+                            <div class="add-feature-link blue">
+                                <div class="link-plus">+</div>
+                                <div>Add Instagram, Websites, Other Links</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-timeline-wrap">
+                    <?php if ($profileId == $userId) { ?>
+                        <div class="profile-status-write">
+                            <div class="status-wrap">
+                                <div class="status-top-wrap">
+                                    <div class="status-top">
+                                        Create Post
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="status-med">
+                                <div class="status-prof">
+                                    <div class="top-pic"><img src="<?= $userData->profilePic; ?>" alt=""></div>
+                                </div>
+                                <div class="status-prof-textarea">
+                                    <textarea name="textStatus" id="statusEmoji" cols="5" rows="5"
+                                              class="status align-middle"
+                                              placeholder="What's going on your mind ?"></textarea>
+                                </div>
+                            </div>
+                            <div class="status-bot">
+                                <div class="file-upload-remIm">
+                                    <label for="multiple_files" class="file-upload-label">
+                                        <div class="status-bot-1" id = "chooseFile">
+                                            <img src="assets/image/photo.JPG" alt="">
+                                            <div class="status-bot-text">Photo/Video</div>
+                                        </div>
+                                    </label>
+                                    <input type="file" name="file-upload" id="multiple_files" class="file-upload-input"
+                                           data-multiple-caption="{count} files selected" multiple="">
+                                </div>
+                                <div class="status-bot-1">
+                                    <img src="assets/image/tag.JPG" alt="">
+                                    <div class="status-bot-text">Tag Friends</div>
+                                </div>
+                                <div class="status-bot-1">
+                                    <img src="assets/image/activities.JPG" alt="">
+                                    <div class="status-bot-text">Feeling/Activities</div>
+                                </div>
+                                <div class="status-bot-1 dott">...</div>
+                            </div>
+                            <ul id="sortable"></ul>
+                            <div class="status-share-button-wrap">
+                                <div class="status-share-button">
+                                    <div class="newsFeed-privacy">
+                                        <div class="newFeed">
+                                            <div class="right-sign-icon">
+                                                <img src="assets/image/profile/rightSign.JPG" alt="">
+                                            </div>
+                                            <div class="newsfeed-icon align-middle">
+                                                <img src="assets/image/profile/newsFeed.JPG" alt="">
+                                            </div>
+                                            <div class="newsfee-text">
+                                                News Feed
+                                            </div>
+                                        </div>
+                                        <div class="status-privacy-wrap">
+                                            <div class="status-privacy">
+                                                <div class="privacy-icon align-middle">
+                                                    <img src="assets/image/profile/publicIcon.JPG" alt="">
+                                                </div>
+                                                <div class="privacy-text">Public</div>
+                                                <div class="privacy-downarrow-icon align-middle">
+                                                    <img src="assets/image/watchmore.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="status-privacy-option">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="seemore-sharebutton">
+                                        <div class="share-seemore-option">
+                                            <div class="privacy-downarr-icon align-middle">
+                                                <img src="assets/image/watchmore.png" alt="" class="privacy-img">
+                                                <span class="status-seemore">See more</span>
+                                            </div>
+                                        </div>
+                                        <div class="status-share-button align-middle">
+                                            <sapn>Share</sapn>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div class="ptaf-wrap">
+                        <?php $loadFromPost->posts($userId,$profileId,20); ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,10 +367,13 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
             <div class="profile-pic-upload-action">
                 <div class="pro-pic-up">
                     <div class="file-upload">
-                        <label for="profile-upload" class = "file-upload-label">
-                            <snap class = "upload-plus-text align-middle"><snap class = "upload-plus-sign">+</snap>Upload Photo</snap>
+                        <label for="profile-upload" class="file-upload-label">
+                            <snap class="upload-plus-text align-middle">
+                                <snap class="upload-plus-sign">+</snap>
+                                Upload Photo
+                            </snap>
                         </label>
-                        <input type="file" name = "file-upload" id = "profile-upload" class = "file-upload-input">
+                        <input type="file" name="file-upload" id="profile-upload" class="file-upload-input">
                     </div>
                 </div>
                 <div class="pro-pic-choose"></div>
@@ -248,6 +382,13 @@ if (isset($_GET['username']) && !empty($_GET['username'])) {
     </div>
     <div id="adv_dem"></div>
 </main>
+<script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+</script>
+
+<script src="assets/dist/emojionearea.min.js"></script>
 <script src="assets/js/profile.js"></script>
 </body>
 </html>

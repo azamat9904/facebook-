@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a432f905-9751-4577-b1cd-18cbd20cf3e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/ajax/postSubmit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/ajax/uploadPostImage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/classes/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/classes/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/load.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/load.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +56,10 @@
       <workItem from="1593420496952" duration="17091000" />
       <workItem from="1593492659995" duration="13783000" />
       <workItem from="1593510474406" duration="869000" />
-      <workItem from="1593533503606" duration="6754000" />
+      <workItem from="1593533503606" duration="7038000" />
+      <workItem from="1593598387583" duration="15079000" />
+      <workItem from="1593668738040" duration="14603000" />
+      <workItem from="1593837692698" duration="1942000" />
     </task>
     <servers />
   </component>
@@ -59,21 +67,25 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593533512027">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1593839081427">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593533512027" />
-    <state x="463" y="10" width="609" height="804" key="find.popup" timestamp="1593431040477">
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.824@0.0.1536.824" timestamp="1593839081427" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1593837692365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="463" y="10" width="609" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1593431040477" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1593837692365" />
+    <state x="463" y="10" width="738" height="804" key="find.popup" timestamp="1593622401900">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="463" y="10" width="738" height="804" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1593622401900" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1593325508441">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1536.824@0.0.1536.824" timestamp="1593325508441" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593251131640">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1593601274972">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593251131640" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1593601274972" />
   </component>
 </project>
